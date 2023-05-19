@@ -1,0 +1,23 @@
+                        insert(unshift)         append(push)
+
+tinyArray               31.5 μs                 93.4 μs
+smallArray              37.2 μs                 78.7 μs
+mediumArray             137.3 μs                100.7 μs
+largeArray              6.2147 ms               405 μs
+extraLargeArray         619.1637 ms             1.8943 ms
+
+---------------
+Step 1.4
+---------------
+Based on the results, we can observe that as the size of the array increases, both the unshift and push functions take longer. However, the rate at which the time increases is different for each function.
+
+In the unshift function, the time taken generally increases with the size of the array, but it does so more gradually. The increase in time from tinyArray to smallArray is small, from smallArray to mediumArray it increases further, and from mediumArray to largeArray it increases significantly. However, the increase from largeArray to extraLargeArray is enormous, indicating a significant decrease in performance.
+
+The push function shows a consistent time across different array sizes. There is a slight increase from tinyArray to smallArray, but the time remains stable from smallArray to mediumArray and largeArray. Only when moving from largeArray to extraLargeArray is there a noticeable increase in time.
+
+Based on the observed pattern, the append function scales better compared to the unshift operation. The time for the unshift operation increases significantly as the array size grows, especially when is a very large array. In contrast, the push function shows better scalability, as it maintains a stable time across most array sizes, with a noticeable increase only when dealing with an extra-large array.
+
+---------------
+Step 1.5
+---------------
+When inserting an element at the beginning of an array using the unshift function, all existing elements need to be shifted one position to the right, which requires copying and moving a significant portion of the array's contents. This operation becomes increasingly expensive as the array size grows, resulting in slower performance. On the other hand, the push function simply adds an element to the end of the array, resulting in faster performance as the array size increases.
